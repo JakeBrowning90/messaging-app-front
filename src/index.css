@@ -66,3 +66,21 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* My test styles */
+
+.screenLogin {
+  background-color: rgba(255, 0, 0, 0.559);
+}
+
+.screenHome {
+  background-color: rgba(255, 230, 0, 0.529);
+}
+
+.screenConvo {
+  background-color: rgba(0, 255, 94, 0.498);
+}
+
+.screenProfile {
+  background-color: rgba(0, 255, 238, 0.534);
+}

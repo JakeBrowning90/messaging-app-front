@@ -8,7 +8,12 @@ function App() {
 
   return (
     <>
-      <div>
+    <div className='screenLogin'>Login View</div>
+    <div className='screenHome'>Home View</div>
+    <div className='screenConvo'>Convo View</div>
+    <div className='screenProfile'>Profile View</div>
+
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -27,7 +32,7 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   )
 }
