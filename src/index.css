@@ -69,8 +69,20 @@ button:focus-visible {
 
 /* My test styles */
 
+button {
+  border: 1px solid black;
+}
+
+.page {
+  height: 20vh;
+}
+
 .screenLogin {
   background-color: rgba(255, 0, 0, 0.559);
+}
+
+.screenSignup {
+  background-color: rgba(255, 150, 45, 0.559);
 }
 
 .screenHome {
