@@ -12,12 +12,16 @@ import ConvoScreen from "./components/ConvoScreen";
 function App() {
   const [count, setCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSigningUp, setIsSigningUp] = useState(false);
   const [email, setEmail] = useState("g@g.com");
   const [password, setPassword] = useState("");
 
   // Conditional render between loggedin/out
   const toggleLoggedInTest = () => {
     setIsLoggedIn(!isLoggedIn);
+  };
+  const toggleSignup = () => {
+    setIsSigningUp(!isSigningUp);
   };
 
   function handleEmail(e) {
@@ -41,13 +45,23 @@ function App() {
 
   return (
     <>
-      <LoginScreen
-        email={email}
-        handleEmail={handleEmail}
-        password={password}
-        handlePassword={handlePassword}
-      />
-      {/* <SignupScreen /> */}
+      {isSigningUp ? (
+        <SignupScreen
+          email={email}
+          handleEmail={handleEmail}
+          password={password}
+          handlePassword={handlePassword}
+          toggleSignup={toggleSignup}
+        />
+      ) : (
+        <LoginScreen
+          email={email}
+          handleEmail={handleEmail}
+          password={password}
+          handlePassword={handlePassword}
+          toggleSignup={toggleSignup}
+        />
+      )}
       <button onClick={toggleLoggedInTest}>TEST Log in</button>
     </>
   );

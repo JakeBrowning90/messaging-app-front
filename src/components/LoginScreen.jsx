@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-function LoginScreen({ email, handleEmail, password, handlePassword }) {
+function LoginScreen({
+  email,
+  handleEmail,
+  password,
+  handlePassword,
+  toggleSignup,
+}) {
   async function submitLogin(e) {
     e.preventDefault();
     const response = await fetch("http://localhost:3000/users/log-in", {
@@ -44,9 +50,9 @@ function LoginScreen({ email, handleEmail, password, handlePassword }) {
           />
         </label>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Log In</button>
       </form>
-      <button>Sign up</button>
+      <button onClick={toggleSignup}>Sign up</button>
     </div>
   );
 }
