@@ -5,7 +5,10 @@ function LoginScreen({
   handleEmail,
   password,
   handlePassword,
+  invalidLogin,
+  toggleInvalidLogin,
   toggleSignup,
+  toggleLoggedIn,
 }) {
   async function submitLogin(e) {
     e.preventDefault();
@@ -20,13 +23,21 @@ function LoginScreen({
         password: password,
       }),
     });
-    const loginResponse = await response.json();
-    console.log(loginResponse);
+    if (response.status != 200) {
+      toggleInvalidLogin(true)
+    } else {
+      const loginResponse = await response.json();
+      console.log(loginResponse);
+      toggleInvalidLogin(false)
+      toggleLoggedIn();
+    }
   }
 
   return (
     <div className="screenLogin page">
-      Login View
+     <p>Log in to your account</p>
+      {invalidLogin && (<p>Incorrect email / password. Please try again.</p>)}
+
       <form onSubmit={submitLogin}>
         <label htmlFor="email">
           Email

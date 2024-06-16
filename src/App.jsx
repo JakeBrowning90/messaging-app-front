@@ -12,15 +12,28 @@ import ConvoScreen from "./components/ConvoScreen";
 function App() {
   const [count, setCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [invalidLogin, setInvalidLogin] = useState(false);
   const [isSigningUp, setIsSigningUp] = useState(false);
-  const [email, setEmail] = useState("g@g.com");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [signupErrors, setSignupErrors] = useState([]);
 
   // Conditional render between loggedin/out
-  const toggleLoggedInTest = () => {
+  const toggleLoggedIn = () => {
     setIsLoggedIn(!isLoggedIn);
   };
+
+  function toggleInvalidLogin(bool) {
+    setInvalidLogin(bool);
+  }
+
   const toggleSignup = () => {
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setInvalidLogin(false);
+    setSignupErrors([]);
     setIsSigningUp(!isSigningUp);
   };
 
@@ -32,13 +45,17 @@ function App() {
     setPassword(e.target.value);
   }
 
+  function handleConfirmPassword(e) {
+    setConfirmPassword(e.target.value);
+  }
+
   if (isLoggedIn) {
     return (
       <>
         <HomeScreen />
         <ConvoScreen />
         <ProfileScreen />
-        <button onClick={toggleLoggedInTest}>TEST Log out</button>
+        <button onClick={toggleLoggedIn}>Log out</button>
       </>
     );
   }
@@ -51,6 +68,10 @@ function App() {
           handleEmail={handleEmail}
           password={password}
           handlePassword={handlePassword}
+          confirmPassword={confirmPassword}
+          handleConfirmPassword={handleConfirmPassword}
+          signupErrors={signupErrors}
+          setSignupErrors={setSignupErrors}
           toggleSignup={toggleSignup}
         />
       ) : (
@@ -59,10 +80,13 @@ function App() {
           handleEmail={handleEmail}
           password={password}
           handlePassword={handlePassword}
+          invalidLogin={invalidLogin}
+          toggleInvalidLogin={toggleInvalidLogin}
           toggleSignup={toggleSignup}
+          toggleLoggedIn={toggleLoggedIn}
         />
       )}
-      <button onClick={toggleLoggedInTest}>TEST Log in</button>
+      {/* <button onClick={toggleLoggedInTest}>TEST Log in</button> */}
     </>
   );
 }

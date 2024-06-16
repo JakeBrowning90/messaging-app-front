@@ -5,6 +5,10 @@ function SignupScreen({
   handleEmail,
   password,
   handlePassword,
+  confirmPassword,
+  handleConfirmPassword,
+  signupErrors,
+  setSignupErrors,
   toggleSignup,
 }) {
   async function submitSignup(e) {
@@ -18,19 +22,28 @@ function SignupScreen({
       body: JSON.stringify({
         email: email,
         password: password,
+        confirm_password: confirmPassword,
       }),
     });
     const signupResponse = await response.json();
-    console.log(signupResponse);
-    toggleSignup();
+    if (Array.isArray(signupResponse)) {
+      setSignupErrors(signupResponse)
+    } else {
+      toggleSignup();
+    }
   }
 
   return (
     <div className="screenSignup page">
-      Signup View
+      <p>Create a New User</p>
+      <ul>
+        {signupErrors.map((err) => {
+          return <li>{err.msg}</li>
+        })}
+      </ul>
       <form onSubmit={submitSignup}>
         <label htmlFor="email">
-          Email
+          Email:
           <input
             name="email"
             type="text"
@@ -41,13 +54,24 @@ function SignupScreen({
         </label>
 
         <label htmlFor="password">
-          Password
+          Password:
           <input
             name="password"
             type="password"
             id="password"
             value={password}
             onChange={handlePassword}
+          />
+        </label>
+
+        <label htmlFor="password">
+          Confirm Password:
+          <input
+            name="confirmPassword"
+            type="password"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={handleConfirmPassword}
           />
         </label>
         <button type="submit">Create User</button>
