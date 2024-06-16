@@ -12,10 +12,21 @@ import ConvoScreen from "./components/ConvoScreen";
 function App() {
   const [count, setCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [email, setEmail] = useState("g@g.com");
+  const [password, setPassword] = useState("");
 
+  // Conditional render between loggedin/out
   const toggleLoggedInTest = () => {
     setIsLoggedIn(!isLoggedIn);
   };
+
+  function handleEmail(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePassword(e) {
+    setPassword(e.target.value);
+  }
 
   if (isLoggedIn) {
     return (
@@ -23,16 +34,21 @@ function App() {
         <HomeScreen />
         <ConvoScreen />
         <ProfileScreen />
-        <button onClick={toggleLoggedInTest}>Log out</button>
+        <button onClick={toggleLoggedInTest}>TEST Log out</button>
       </>
     );
   }
 
   return (
     <>
-      <LoginScreen />
-      <SignupScreen />
-      <button onClick={toggleLoggedInTest}>Log in</button>
+      <LoginScreen
+        email={email}
+        handleEmail={handleEmail}
+        password={password}
+        handlePassword={handlePassword}
+      />
+      {/* <SignupScreen /> */}
+      <button onClick={toggleLoggedInTest}>TEST Log in</button>
     </>
   );
 }
