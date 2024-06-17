@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -18,6 +18,9 @@ function App() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [signupErrors, setSignupErrors] = useState([]);
+  const [username, setUsername] = useState("");
+  const [userContacts, setUserContacts] = useState([]);
+  const [error, setError] = useState(null);
 
   // Conditional render between loggedin/out
   const toggleLoggedIn = () => {
@@ -49,13 +52,42 @@ function App() {
     setConfirmPassword(e.target.value);
   }
 
+  function logOut() {
+    localStorage.clear();
+    toggleLoggedIn();
+  }
+
+  function setUserData(response) {
+    console.log(response);
+    setUsername(response.email);
+    setUserContacts(response.contacts);
+  }
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/users/${localStorage.getItem("id")}`, {
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error("user fetch error");
+        }
+        return response.json();
+      })
+      .then((response) => setUserData(response))
+      .catch((error) => setError(error));
+    console.log(localStorage.getItem("id"))
+  }, [isLoggedIn]);
+
   if (isLoggedIn) {
     return (
       <>
-        <HomeScreen />
+        <HomeScreen username={username} userContacts={userContacts} />
         <ConvoScreen />
         <ProfileScreen />
-        <button onClick={toggleLoggedIn}>Log out</button>
+        <button onClick={logOut}>Log out</button>
       </>
     );
   }

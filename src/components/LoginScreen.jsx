@@ -27,7 +27,10 @@ function LoginScreen({
       toggleInvalidLogin(true)
     } else {
       const loginResponse = await response.json();
-      console.log(loginResponse);
+      // console.log(loginResponse);
+      localStorage.setItem('email', loginResponse.email)
+      localStorage.setItem('id', loginResponse.id)
+      localStorage.setItem('token', loginResponse.token)
       toggleInvalidLogin(false)
       toggleLoggedIn();
     }
