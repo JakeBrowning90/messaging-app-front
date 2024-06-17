@@ -8,6 +8,7 @@ import SignupScreen from "./components/SignupScreen";
 import HomeScreen from "./components/HomeScreen";
 import ProfileScreen from "./components/ProfileScreen";
 import ConvoScreen from "./components/ConvoScreen";
+import SearchScreen from "./components/SearchScreen";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -78,7 +79,7 @@ function App() {
       })
       .then((response) => setUserData(response))
       .catch((error) => setError(error));
-    console.log(localStorage.getItem("id"))
+    // console.log(localStorage.getItem("id"))
   }, [isLoggedIn]);
 
   if (isLoggedIn) {
@@ -87,6 +88,7 @@ function App() {
         <HomeScreen username={username} userContacts={userContacts} />
         <ConvoScreen />
         <ProfileScreen />
+        <SearchScreen userContacts={userContacts}/>
         <button onClick={logOut}>Log out</button>
       </>
     );
