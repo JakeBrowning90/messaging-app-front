@@ -33,6 +33,45 @@ function SearchScreen({ userContacts }) {
     return userContacts.some((contact) => contact.id === li);
   }
 
+  // function addContact(contact) {
+  //   let contactsList = []
+  //   userContacts.map((item) => {
+  //     contactsList.push(item.id)
+  //   })
+  //   // console.log(contact);
+  //   contactsList.push(contact)
+  //   // console.log(contactsList);
+
+  // }
+
+  async function addContact(contact) {
+    // e.preventDefault();
+    let contactsList = []
+    userContacts.map((item) => {
+      contactsList.push(item.id)
+    })
+    // console.log(contact);
+    contactsList.push(contact)
+    // console.log(contactsList);
+    const response = await fetch(`http://localhost:3000/users/add-contact/${localStorage.getItem('id')}`, {
+      method: "PUT",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contacts: contactsList
+      }),
+    });
+    const contactsResonse = await response.json();
+    // if (Array.isArray(signupResponse)) {
+    //   setSignupErrors(signupResponse)
+    // } else {
+    //   toggleSignup();
+    // }
+  }
+
+
   return (
     <div className="screenSearch page">
       <form onSubmit={searchUsers}>
@@ -59,7 +98,7 @@ function SearchScreen({ userContacts }) {
               !isExistingContact(result.id) && (
                 <li>
                   <p>{result.email}</p>
-                  <button>Add</button>
+                  <button onClick={() => addContact(result.id)}>Add</button>
                 </li>
               )
             );
