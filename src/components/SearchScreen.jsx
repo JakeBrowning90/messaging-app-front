@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function SearchScreen({ userContacts }) {
+function SearchScreen({ userContacts, navToContacts }) {
   const [query, setQuery] = useState("");
   const [queryResults, setQueryResults] = useState([]);
 
@@ -105,6 +105,7 @@ function SearchScreen({ userContacts }) {
           })}
         </ul>
       )}
+      <button onClick={navToContacts}>Back to contacts</button>
     </div>
   );
 }

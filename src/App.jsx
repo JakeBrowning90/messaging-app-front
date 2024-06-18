@@ -5,10 +5,7 @@ import "./App.css";
 
 import LoginScreen from "./components/LoginScreen";
 import SignupScreen from "./components/SignupScreen";
-import HomeScreen from "./components/HomeScreen";
-import ProfileScreen from "./components/ProfileScreen";
-import ConvoScreen from "./components/ConvoScreen";
-import SearchScreen from "./components/SearchScreen";
+import DashboardScreen from "./components/DashboardScreen";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -85,11 +82,11 @@ function App() {
   if (isLoggedIn) {
     return (
       <>
-        <HomeScreen username={username} userContacts={userContacts} />
+        <DashboardScreen username={username} userContacts={userContacts} logOut={logOut}/>
+        {/* <ContactsScreen username={username} userContacts={userContacts} />
         <ConvoScreen />
         <ProfileScreen />
-        <SearchScreen userContacts={userContacts}/>
-        <button onClick={logOut}>Log out</button>
+        <SearchScreen userContacts={userContacts} /> */}
       </>
     );
   }

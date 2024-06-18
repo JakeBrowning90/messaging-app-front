@@ -80,3 +80,9 @@ label {
 .screenSearch {
   background-color: rgba(182, 35, 250, 0.534);
 }
+
+.screenDash {
+  background-color: rgba(164, 255, 125, 0.534);
+  height: 100vh;
+}
+
