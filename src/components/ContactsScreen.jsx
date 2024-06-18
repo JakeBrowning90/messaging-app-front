@@ -15,7 +15,7 @@ function ContactsScreen({ username, userContacts, navToConvo, navToSearch }) {
           })}
         </ul>
       )}
-      <button onClick={navToSearch}>Add contacts</button>
+      <button onClick={navToSearch}>Add new contact</button>
     </div>
   );
 }
