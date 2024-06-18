@@ -55,38 +55,38 @@ function App() {
     toggleLoggedIn();
   }
 
-  function setUserData(response) {
-    console.log(response);
-    setUsername(response.email);
-    setUserContacts(response.contacts);
-  }
+  // function setUserData(response) {
+  //   // console.log(response);
+  //   setUsername(response.email);
+  //   setUserContacts(response.contacts);
+  // }
 
-  useEffect(() => {
-    fetch(`http://localhost:3000/users/${localStorage.getItem("id")}`, {
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.status >= 400) {
-          throw new Error("user fetch error");
-        }
-        return response.json();
-      })
-      .then((response) => setUserData(response))
-      .catch((error) => setError(error));
-    // console.log(localStorage.getItem("id"))
-  }, [isLoggedIn]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:3000/users/${localStorage.getItem("id")}`, {
+  //     mode: "cors",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((response) => {
+  //       if (response.status >= 400) {
+  //         throw new Error("user fetch error");
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((response) => setUserData(response))
+  //     .catch((error) => setError(error));
+  //   // console.log(localStorage.getItem("id"))
+  // }, [isLoggedIn]);
 
   if (isLoggedIn) {
     return (
       <>
-        <DashboardScreen username={username} userContacts={userContacts} logOut={logOut}/>
-        {/* <ContactsScreen username={username} userContacts={userContacts} />
-        <ConvoScreen />
-        <ProfileScreen />
-        <SearchScreen userContacts={userContacts} /> */}
+        <DashboardScreen
+          // username={username}
+          // userContacts={userContacts}
+          logOut={logOut}
+        />
       </>
     );
   }

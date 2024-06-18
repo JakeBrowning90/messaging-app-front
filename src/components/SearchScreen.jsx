@@ -33,44 +33,29 @@ function SearchScreen({ userContacts, navToContacts }) {
     return userContacts.some((contact) => contact.id === li);
   }
 
-  // function addContact(contact) {
-  //   let contactsList = []
-  //   userContacts.map((item) => {
-  //     contactsList.push(item.id)
-  //   })
-  //   // console.log(contact);
-  //   contactsList.push(contact)
-  //   // console.log(contactsList);
-
-  // }
-
-  async function addContact(contact) {
-    // e.preventDefault();
-    let contactsList = []
+  function addContact(contact) {
+    let contactsList = [];
     userContacts.map((item) => {
-      contactsList.push(item.id)
-    })
-    // console.log(contact);
-    contactsList.push(contact)
-    // console.log(contactsList);
-    const response = await fetch(`http://localhost:3000/users/add-contact/${localStorage.getItem('id')}`, {
-      method: "PUT",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contacts: contactsList
-      }),
+      contactsList.push(item.id);
     });
-    const contactsResonse = await response.json();
-    // if (Array.isArray(signupResponse)) {
-    //   setSignupErrors(signupResponse)
-    // } else {
-    //   toggleSignup();
-    // }
+    contactsList.push(contact);
+    fetch(
+      `http://localhost:3000/users/add-contact/${localStorage.getItem("id")}`,
+      {
+        method: "PUT",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contacts: contactsList,
+        }),
+      }
+    ).then((response) => {
+      console.log(response);
+      navToContacts();
+    });
   }
-
 
   return (
     <div className="screenSearch page">
