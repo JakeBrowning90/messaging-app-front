@@ -1,4 +1,15 @@
-function ContactsScreen({ username, userContacts, navToConvo, navToSearch }) {
+function ContactsScreen({
+  username,
+  userContacts,
+  navToConvo,
+  navToSearch,
+  setCurrentConvo,
+}) {
+  function loadConvo(contact) {
+    setCurrentConvo(contact);
+    navToConvo();
+  }
+
   return (
     <div className="screenHome page">
       <p>Contacts View</p>
@@ -9,7 +20,7 @@ function ContactsScreen({ username, userContacts, navToConvo, navToSearch }) {
           {userContacts.map((contact) => {
             return (
               <li>
-                <div onClick={navToConvo}>{contact.email}</div>
+                <div onClick={() => loadConvo(contact.email)}>{contact.email}</div>
               </li>
             );
           })}

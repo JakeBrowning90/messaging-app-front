@@ -117,7 +117,6 @@ function App() {
           toggleLoggedIn={toggleLoggedIn}
         />
       )}
-      {/* <button onClick={toggleLoggedInTest}>TEST Log in</button> */}
     </>
   );
 }

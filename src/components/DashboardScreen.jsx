@@ -12,6 +12,7 @@ function DashboardScreen({ logOut }) {
   const [searchActive, setSearchActive] = useState(false);
   const [username, setUsername] = useState("");
   const [userContacts, setUserContacts] = useState([]);
+  const [currentConvo, setCurrentConvo] = useState("");
 
   const navToContacts = () => {
     setProfileActive(false);
@@ -75,9 +76,16 @@ function DashboardScreen({ logOut }) {
           userContacts={userContacts}
           navToConvo={navToConvo}
           navToSearch={navToSearch}
+          setCurrentConvo={setCurrentConvo}
         />
       )}
-      {convoActive && <ConvoScreen navToContacts={navToContacts} />}
+      {convoActive && (
+        <ConvoScreen
+          currentConvo={currentConvo}
+          navToContacts={navToContacts}
+          setCurrentConvo={setCurrentConvo}
+        />
+      )}
       {profileActive && <ProfileScreen navToContacts={navToContacts} />}
       {searchActive && (
         <SearchScreen
