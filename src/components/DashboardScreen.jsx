@@ -65,10 +65,11 @@ function DashboardScreen({ logOut }) {
 
   return (
     <div className="screenDash page">
-      <p>Dashboard</p>
-      <p>{username}</p>
-      <button onClick={navToProfile}>Edit profile</button>
-      <button onClick={logOut}>Log out</button>
+      <div className="dashHeader">
+        <p>{username}</p>
+        <button onClick={navToProfile}>Edit profile</button>
+        <button onClick={logOut}>Log out</button>
+      </div>
 
       {contactsActive && (
         <ContactsScreen

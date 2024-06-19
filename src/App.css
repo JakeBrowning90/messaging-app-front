@@ -65,25 +65,31 @@ label {
   background-color: rgba(255, 150, 45, 0.559);
 }
 
+.screenDash {
+  background-color: rgba(164, 255, 125, 0.534);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .screenContacts {
   background-color: rgba(255, 237, 71, 0.529);
+  height: 100%;
 }
 
 .screenConvo {
   background-color: rgba(0, 255, 94, 0.498);
+  height: 100%;
 }
 
 .screenProfile {
   background-color: rgba(0, 255, 238, 0.534);
+  height: 100%;
 }
 
 .screenSearch {
   background-color: rgba(182, 35, 250, 0.534);
-}
-
-.screenDash {
-  background-color: rgba(164, 255, 125, 0.534);
-  height: 100vh;
+  height: 100%;
 }
 
 .contactList {
@@ -97,3 +103,7 @@ label {
   border: 1px solid grey;
 }
 
+.dashHeader {
+  display: flex;
+  height: 100px;
+}
