@@ -11,16 +11,16 @@ function ContactsScreen({
   }
 
   return (
-    <div className="screenHome page">
+    <div className="screenContacts page">
       <p>Contacts View</p>
       {userContacts.length == 0 ? (
         <p>You have no contacts</p>
       ) : (
-        <ul>
+        <ul className="contactList">
           {userContacts.map((contact) => {
             return (
-              <li>
-                <div onClick={() => loadConvo(contact.email)}>{contact.email}</div>
+              <li className="contactListItem">
+                <div onClick={() => loadConvo(contact)}>{contact.email}</div>
               </li>
             );
           })}

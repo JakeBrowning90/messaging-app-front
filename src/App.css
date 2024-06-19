@@ -65,8 +65,8 @@ label {
   background-color: rgba(255, 150, 45, 0.559);
 }
 
-.screenHome {
-  background-color: rgba(255, 230, 0, 0.529);
+.screenContacts {
+  background-color: rgba(255, 237, 71, 0.529);
 }
 
 .screenConvo {
@@ -84,5 +84,16 @@ label {
 .screenDash {
   background-color: rgba(164, 255, 125, 0.534);
   height: 100vh;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactListItem {
+  background-color: rgba(0, 255, 94, 0.498);
+  border: 1px solid grey;
 }
 
