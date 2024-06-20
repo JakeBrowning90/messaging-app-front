@@ -12,7 +12,7 @@ function ContactsScreen({
 
   return (
     <div className="screenContacts page">
-      <p>Contacts View</p>
+      <p>Your Contacts</p>
       {userContacts.length == 0 ? (
         <p>You have no contacts</p>
       ) : (

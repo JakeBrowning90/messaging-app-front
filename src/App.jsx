@@ -67,10 +67,6 @@ function App() {
   return (
     <div className="screenGate">
       <h1>WhatsUp</h1>
-      <p>Made by Jake Browning for The Odin Project, 2024.</p>
-      <a href="http://jake-browning.com/" target="_blank">
-        Portfolio
-      </a>
       {isSigningUp ? (
         <SignupScreen
           email={email}

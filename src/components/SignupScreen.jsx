@@ -53,6 +53,17 @@ function SignupScreen({
           />
         </label>
 
+        {/* <label htmlFor="displayName">
+          Display name (You can change this later):
+          <input
+            name="displayName"
+            type="text"
+            id="displayName"
+            value={displayName}
+            onChange={handleDisplayName}
+          />
+        </label> */}
+
         <label htmlFor="password">
           Password:
           <input

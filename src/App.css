@@ -16,8 +16,8 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: white;
+  /* text-decoration: inherit; */
 }
 a:hover {
   color: #535bf2;
@@ -27,19 +27,19 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2.5em;
   line-height: 1.1;
 }
 
 button {
   border-radius: 8px;
   border: 1px solid black;
-  padding: 0.6em 1.2em;
+  padding: .5em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -71,29 +71,25 @@ button:focus-visible {
 
 
 #root {
+  background-color: rgb(61, 61, 61);
+  height: 100vh;
   max-width: 1280px;
   margin: 0;
-  padding: 0;
+  padding: 5px;
+  box-sizing: border-box;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
   color: white;
 }
 
-.page {
-  color: white;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 label {
   /* width: 75%; */
   display: flex;
   flex-direction: column;
-  
 }
 
 .screenGate, .screenDash {
@@ -103,26 +99,35 @@ label {
   flex-direction: column;
 }
 
-.screenLogin {
-  background-color: rgba(255, 58, 58, 0.559);
+.page {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
 }
 
-.screenSignup {
-  background-color: rgba(255, 150, 45, 0.559);
+.screenLogin, .screenSignup {
+  display: flex;
+  gap: 10px;
+  background-color: rgba(138, 138, 138, 0.559);
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .screenContacts {
-  background-color: rgba(255, 237, 71, 0.529);
+  background-color: rgba(138, 138, 138, 0.559);
   height: 100%;
 }
 
+
 .screenConvo {
-  background-color: rgba(0, 255, 94, 0.498);
+  background-color: rgba(138, 138, 138, 0.559);
   height: 100%;
 }
 
 .screenProfile {
-  background-color: rgba(0, 255, 238, 0.534);
+  background-color: rgba(138, 138, 138, 0.559);
   height: 100%;
 }
 
@@ -149,10 +154,20 @@ li {
 
 .dashHeader {
   display: flex;
+  justify-content: space-between;
   height: 70px;
+}
+
+.headerMenu {
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
   list-style: none;
 }
 
+.creditBar {
+  margin-top: auto;
+  padding: 5px;
+}
