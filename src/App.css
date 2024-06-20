@@ -11,7 +11,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 a {
@@ -24,10 +23,10 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   place-items: center;
-  /* min-width: 320px; */
+  max-width: 800px;
   min-height: 100vh;
 }
 
@@ -39,14 +38,14 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid black;
-  padding: .5em;
+  padding: 0.5em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 100px;
+  /* width: 100px; */
 }
 button:hover {
   border-color: #646cff;
@@ -69,17 +68,17 @@ button:focus-visible {
   }
 }
 
-
 #root {
   background-color: rgb(61, 61, 61);
   height: 100vh;
-  max-width: 1280px;
+  width: 100vw;
+  /* max-width: 1280px; */
   margin: 0;
   padding: 5px;
   box-sizing: border-box;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 70px;
 }
 
 body {
@@ -92,11 +91,15 @@ label {
   flex-direction: column;
 }
 
-.screenGate, .screenDash {
+.screenGate,
+.screenDash {
   background-color: rgb(61, 61, 61);
-  height: 100vh;
-  display: flex;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  /* display: flex;
   flex-direction: column;
+  justify-content: stretch; */
 }
 
 .page {
@@ -107,7 +110,8 @@ label {
   border-radius: 5px;
 }
 
-.screenLogin, .screenSignup {
+.screenLogin,
+.screenSignup {
   display: flex;
   gap: 10px;
   background-color: rgba(138, 138, 138, 0.559);
@@ -117,29 +121,22 @@ label {
 
 .screenContacts {
   background-color: rgba(138, 138, 138, 0.559);
-  height: 100%;
+  /* max-height: 80vh; */
+  display: grid;
+  grid-template-rows: 30px 1fr 70px;
 }
 
-
-.screenConvo {
-  background-color: rgba(138, 138, 138, 0.559);
-  height: 100%;
-}
-
-.screenProfile {
-  background-color: rgba(138, 138, 138, 0.559);
-  height: 100%;
-}
-
-.screenSearch {
-  background-color: rgba(182, 35, 250, 0.534);
-  height: 100%;
+.contactsBody {
+  max-height: 400px;
+  overflow: scroll;
 }
 
 .contactList {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-self: start;
+  /* overflow: scroll; */
 }
 
 li {
@@ -148,14 +145,40 @@ li {
 }
 
 .contactListItem {
-  background-color: rgba(0, 255, 94, 0.498);
+  height: 50px;
+  background-color: rgba(49, 49, 49, 0.498);
   border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.screenConvo {
+  background-color: rgba(138, 138, 138, 0.559);
+  /* height: 100%; */
+}
+
+.screenProfile {
+  background-color: rgba(138, 138, 138, 0.559);
+  /* height: 100%; */
+}
+
+.screenSearch {
+  background-color: rgba(182, 35, 250, 0.534);
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.searchHeader {
+  display: flex;
+  height: 80px;
 }
 
 .dashHeader {
   display: flex;
   justify-content: space-between;
-  height: 70px;
+  /* height: 70px; */
 }
 
 .headerMenu {

@@ -13,6 +13,7 @@ function ContactsScreen({
   return (
     <div className="screenContacts page">
       <p>Your Contacts</p>
+      <div className="contactsBody">
       {userContacts.length == 0 ? (
         <p>You have no contacts</p>
       ) : (
@@ -26,6 +27,8 @@ function ContactsScreen({
           })}
         </ul>
       )}
+      </div>
+    
       <button onClick={navToSearch}>Add new contact</button>
     </div>
   );

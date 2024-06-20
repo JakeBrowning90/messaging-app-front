@@ -59,19 +59,22 @@ function SearchScreen({ userContacts, navToContacts }) {
 
   return (
     <div className="screenSearch page">
-      <form onSubmit={searchUsers}>
-        <label htmlFor="query">
-          Search users:
-          <input
-            name="query"
-            type="text"
-            id="query"
-            value={query}
-            onChange={handleQuery}
-          />
-        </label>
-        <button type="submit">Search</button>
-      </form>
+      <div className="searchHeader">
+        <button onClick={navToContacts}>Back</button>
+        <form onSubmit={searchUsers}>
+          <label htmlFor="query">
+            Search users:
+            <input
+              name="query"
+              type="text"
+              id="query"
+              value={query}
+              onChange={handleQuery}
+            />
+          </label>
+          <button type="submit">Search</button>
+        </form>
+      </div>
 
       {queryResults.length == 0 ? (
         <p>No results, try a new search.</p>
@@ -90,7 +93,6 @@ function SearchScreen({ userContacts, navToContacts }) {
           })}
         </ul>
       )}
-      <button onClick={navToContacts}>Back to contacts</button>
     </div>
   );
 }
