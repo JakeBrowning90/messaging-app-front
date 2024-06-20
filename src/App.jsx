@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import "./reset.css";
 import "./App.css";
 
 import LoginScreen from "./components/LoginScreen";
@@ -55,44 +56,21 @@ function App() {
     toggleLoggedIn();
   }
 
-  // function setUserData(response) {
-  //   // console.log(response);
-  //   setUsername(response.email);
-  //   setUserContacts(response.contacts);
-  // }
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:3000/users/${localStorage.getItem("id")}`, {
-  //     mode: "cors",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((response) => {
-  //       if (response.status >= 400) {
-  //         throw new Error("user fetch error");
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((response) => setUserData(response))
-  //     .catch((error) => setError(error));
-  //   // console.log(localStorage.getItem("id"))
-  // }, [isLoggedIn]);
-
   if (isLoggedIn) {
     return (
       <>
-        <DashboardScreen
-          // username={username}
-          // userContacts={userContacts}
-          logOut={logOut}
-        />
+        <DashboardScreen logOut={logOut} />
       </>
     );
   }
 
   return (
-    <>
+    <div className="screenGate">
+      <h1>WhatsUp</h1>
+      <p>Made by Jake Browning for The Odin Project, 2024.</p>
+      <a href="http://jake-browning.com/" target="_blank">
+        Portfolio
+      </a>
       {isSigningUp ? (
         <SignupScreen
           email={email}
@@ -117,7 +95,7 @@ function App() {
           toggleLoggedIn={toggleLoggedIn}
         />
       )}
-    </>
+    </div>
   );
 }
 
