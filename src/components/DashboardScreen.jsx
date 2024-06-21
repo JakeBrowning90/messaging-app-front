@@ -67,7 +67,7 @@ function DashboardScreen({ logOut }) {
     <div className="screenDash">
       <div className="dashHeader">
         <p>WhatsUp</p>
-        <div classname="headerMenu">
+        <div className="headerMenu">
           <div>
             <p>{username}</p>
           </div>
