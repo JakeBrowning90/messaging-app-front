@@ -38,6 +38,8 @@ function SignupScreen({
 
   return (
     <div className="screenSignup page">
+      <button onClick={toggleSignup}>Back</button>
+
       <p>Create a New User</p>
       <ul>
         {signupErrors.map((err) => {
@@ -91,7 +93,6 @@ function SignupScreen({
 
         <button type="submit">Create User</button>
       </form>
-      <button onClick={toggleSignup}>Back to Login</button>
     </div>
   );
 }

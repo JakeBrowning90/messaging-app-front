@@ -33,6 +33,7 @@ function App() {
   }
 
   const toggleSignup = () => {
+    setDisplayName("");
     setEmail("");
     setPassword("");
     setConfirmPassword("");

@@ -19,8 +19,10 @@ function ContactsScreen({
         <ul className="contactList">
           {userContacts.map((contact) => {
             return (
-              <li className="contactListItem">
-                <div onClick={() => loadConvo(contact)}>{contact.email}</div>
+              <li className="contactListItem" onClick={() => loadConvo(contact)}>
+                <p>{contact.displayName} </p>
+                <p >{contact.status}</p>
+
               </li>
             );
           })}

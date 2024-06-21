@@ -46,6 +46,7 @@ function DashboardScreen({ logOut }) {
     setDisplayName(response.displayName);
     setStatus(response.status)
     setUserContacts(response.contacts);
+    console.log(userContacts)
   }
 
   useEffect(() => {

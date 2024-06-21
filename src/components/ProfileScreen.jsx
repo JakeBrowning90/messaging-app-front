@@ -50,14 +50,17 @@ function ProfileScreen({ navToContacts }) {
 
   return (
     <div className="screenProfile page">
-      <button onClick={navToContacts}>Back to contacts</button>
-      <p>Edit profile</p>
-      <ul>
-        {updateErrors.map((err) => {
-          return <li>{err.msg}</li>;
-        })}
-      </ul>
+      <div className="pageSubheader">
+        <button onClick={navToContacts}>Back</button>
+        <p>Edit profile</p>
+      </div>
+
       <form onSubmit={updateUser}>
+        <ul>
+          {updateErrors.map((err) => {
+            return <li>{err.msg}</li>;
+          })}
+        </ul>
         <label htmlFor="">
           Display name:
           <input

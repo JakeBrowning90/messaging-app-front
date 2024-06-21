@@ -38,40 +38,37 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
 
   async function sendMessage(e) {
     e.preventDefault();
-    // console.log(localStorage.getItem("id"))
-    // console.log(currentConvo.id)
-    // console.log(newMessage)
     let author = localStorage.getItem("id");
     let recipient = currentConvo.id;
-    const response = await fetch(
-      `http://localhost:3000/messages/`,
-      {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          author: author,
-          recipient: recipient,
-          body: newMessage
-        }),
-      }
-    );
+    const response = await fetch(`http://localhost:3000/messages/`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        author: author,
+        recipient: recipient,
+        body: newMessage,
+      }),
+    });
     if (response.status != 200) {
-      console.log("Error posting message")
+      console.log("Error posting message");
     } else {
       const messageResponse = await response.json();
       // console.log(loginResponse);
-      setMessageHistory([...messageHistory, messageResponse])
+      setMessageHistory([...messageHistory, messageResponse]);
       setNewMessage("");
     }
   }
 
   return (
     <div className="screenConvo page">
-      <button onClick={clearConvo}>Back to contacts</button>
-      <p>{currentConvo.email}</p>
+      <div className='pageSubheader'>
+        <button onClick={clearConvo}>Back</button>
+        <p>{currentConvo.displayName}</p>
+        <p>{currentConvo.status}</p>
+      </div>
 
       {messageHistory.length == 0 ? (
         <p>No messages found</p>
