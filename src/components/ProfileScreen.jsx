@@ -1,9 +1,15 @@
 function ProfileScreen({ navToContacts }) {
   return (
     <div className="screenProfile page">
-      <p>Profile View</p>
-      <p>TBA: Form to edit user info</p>
-      <button onClick={navToContacts}>Back to Contacts</button>
+      <button onClick={navToContacts}>Back to contacts</button>
+      <p>Edit profile</p>
+      <form action="">
+        <label htmlFor="">Display name:</label>
+        <label htmlFor="">Status:</label>
+        <label htmlFor="">Password:</label>
+        <label htmlFor="">Confirm password:</label>
+        <button>Save changes</button>
+      </form>
     </div>
   );
 }

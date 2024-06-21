@@ -78,7 +78,7 @@ button:focus-visible {
   box-sizing: border-box;
   text-align: center;
   display: grid;
-  grid-template-rows: 1fr 70px;
+  grid-template-rows: 1fr 30px;
 }
 
 body {
@@ -193,4 +193,7 @@ ul {
 .creditBar {
   margin-top: auto;
   padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
