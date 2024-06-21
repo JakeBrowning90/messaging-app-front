@@ -13,14 +13,16 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [invalidLogin, setInvalidLogin] = useState(false);
   const [isSigningUp, setIsSigningUp] = useState(false);
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [signupErrors, setSignupErrors] = useState([]);
-  const [username, setUsername] = useState("");
-  const [userContacts, setUserContacts] = useState([]);
   const [error, setError] = useState(null);
 
+  function handleDisplayName(e) {
+    setDisplayName(e.target.value);
+  }
   // Conditional render between loggedin/out
   const toggleLoggedIn = () => {
     setIsLoggedIn(!isLoggedIn);
@@ -69,6 +71,8 @@ function App() {
       <h1>WhatsUp</h1>
       {isSigningUp ? (
         <SignupScreen
+          displayName={displayName}
+          handleDisplayName={handleDisplayName}
           email={email}
           handleEmail={handleEmail}
           password={password}

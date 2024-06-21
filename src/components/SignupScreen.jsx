@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 function SignupScreen({
+  displayName,
+  handleDisplayName,
   email,
   handleEmail,
   password,
@@ -20,6 +22,7 @@ function SignupScreen({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        displayName: displayName,
         email: email,
         password: password,
         confirm_password: confirmPassword,
@@ -27,7 +30,7 @@ function SignupScreen({
     });
     const signupResponse = await response.json();
     if (Array.isArray(signupResponse)) {
-      setSignupErrors(signupResponse)
+      setSignupErrors(signupResponse);
     } else {
       toggleSignup();
     }
@@ -38,10 +41,21 @@ function SignupScreen({
       <p>Create a New User</p>
       <ul>
         {signupErrors.map((err) => {
-          return <li>{err.msg}</li>
+          return <li>{err.msg}</li>;
         })}
       </ul>
       <form onSubmit={submitSignup}>
+        <label htmlFor="displayName">
+          Display name (You can change this later):
+          <input
+            name="displayName"
+            type="text"
+            id="displayName"
+            value={displayName}
+            onChange={handleDisplayName}
+          />
+        </label>
+
         <label htmlFor="email">
           Email:
           <input
@@ -52,17 +66,6 @@ function SignupScreen({
             onChange={handleEmail}
           />
         </label>
-
-        {/* <label htmlFor="displayName">
-          Display name (You can change this later):
-          <input
-            name="displayName"
-            type="text"
-            id="displayName"
-            value={displayName}
-            onChange={handleDisplayName}
-          />
-        </label> */}
 
         <label htmlFor="password">
           Password:
@@ -85,6 +88,7 @@ function SignupScreen({
             onChange={handleConfirmPassword}
           />
         </label>
+
         <button type="submit">Create User</button>
       </form>
       <button onClick={toggleSignup}>Back to Login</button>

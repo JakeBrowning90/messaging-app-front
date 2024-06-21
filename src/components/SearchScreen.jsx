@@ -10,7 +10,6 @@ function SearchScreen({ userContacts, navToContacts }) {
 
   function searchUsers(e) {
     e.preventDefault();
-    // console.log(query);
     fetch(`http://localhost:3000/users/?name=${query}`, {
       mode: "cors",
       headers: {

@@ -10,7 +10,10 @@ function DashboardScreen({ logOut }) {
   const [profileActive, setProfileActive] = useState(false);
   const [convoActive, setConvoActive] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
-  const [username, setUsername] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [status, setStatus] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [userContacts, setUserContacts] = useState([]);
   const [currentConvo, setCurrentConvo] = useState("");
 
@@ -40,8 +43,8 @@ function DashboardScreen({ logOut }) {
   };
 
   function setUserData(response) {
-    // console.log(response);
-    setUsername(response.email);
+    setDisplayName(response.displayName);
+    setStatus(response.status)
     setUserContacts(response.contacts);
   }
 
@@ -69,7 +72,7 @@ function DashboardScreen({ logOut }) {
         <p>WhatsUp</p>
         <div className="headerMenu">
           <div>
-            <p>{username}</p>
+            <p>{displayName}</p>
           </div>
           <div onClick={navToProfile}>Edit profile</div>
           <div onClick={logOut}>Log out</div>
@@ -78,7 +81,6 @@ function DashboardScreen({ logOut }) {
 
       {contactsActive && (
         <ContactsScreen
-          username={username}
           userContacts={userContacts}
           navToConvo={navToConvo}
           navToSearch={navToSearch}
