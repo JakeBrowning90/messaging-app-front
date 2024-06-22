@@ -71,23 +71,34 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
           <p>{currentConvo.status}</p>
         </div>
       </div>
+      <div className="messagesBody">
+        {messageHistory.length == 0 ? (
+          <p>No messages found</p>
+        ) : (
+          <ul className="messageList">
+            {messageHistory.map((message) => {
+              return (
+                <li className="messageListItem">
+                  <p>{message.body}</p>
+                  {/* <p>{message.createdAt}</p> */}
+                  <p>{new Date(message.createdAt).toLocaleString()}</p>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
 
-      {messageHistory.length == 0 ? (
-        <p>No messages found</p>
-      ) : (
-        <ul>
-          {messageHistory.map((message) => {
-            return <li>{message.body}</li>;
-          })}
-        </ul>
-      )}
-
-      <form onSubmit={sendMessage}>
-        <label htmlFor="newMessage">
+      <form onSubmit={sendMessage} className="searchForm">
+        <label className="contactSearchLabel" htmlFor="newMessage">
+          New message:
           <input
             type="text"
             name="newMessage"
             id="newMessage"
+            placeholder="Max. 500 characters"
+            minlength="1"
+            maxlength="500"
             value={newMessage}
             onChange={handleNewMessage}
           />

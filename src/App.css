@@ -44,6 +44,12 @@ h1 {
   line-height: 1.1;
 }
 
+h2 {
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1.1;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid black;
@@ -117,7 +123,7 @@ label {
   background-color: rgb(61, 61, 61);
   height: 100%;
   display: grid;
-  grid-template-rows: 70px 1fr;
+  grid-template-rows: 50px 1fr;
 }
 
 .page {
@@ -147,18 +153,18 @@ label {
 }
 
 .pageSubheader {
-  background-color: rgba(172, 255, 47, 0.207);
   display: flex;
   gap: 10px;
   text-justify: center;
+  align-items: center;
 }
 
-.contactsBody {
+.contactsBody, .messagesBody {
   max-height: 410px;
   overflow: scroll;
 }
 
-.contactList {
+.contactList, .messageList {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -181,6 +187,16 @@ li {
   border: 1px solid grey;
   border-radius: 5px;
   padding: 5px;
+}
+
+.messageListItem {
+  display: grid;
+  grid-template-rows: 1fr 20px;
+  background-color: rgba(49, 49, 49, 0.498);
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+  gap: 5px;
 }
 
 .searchListItem {
@@ -241,15 +257,21 @@ li {
 .dashHeader {
   display: flex;
   justify-content: space-between;
-}
-
-.headerMenu {
-  display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 
 ul {
   list-style: none;
+}
+
+.profileLink {
+  text-decoration: underline;
+}
+
+.logOutBtn {
+  margin: 0 auto;
+  font-weight: 600;
+  background-color: rgb(255, 171, 171);
 }
 
 .creditBar {

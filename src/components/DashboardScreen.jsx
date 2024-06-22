@@ -44,9 +44,9 @@ function DashboardScreen({ logOut }) {
 
   function setUserData(response) {
     setDisplayName(response.displayName);
-    setStatus(response.status)
+    setStatus(response.status);
     setUserContacts(response.contacts);
-    console.log(userContacts)
+    console.log(userContacts);
   }
 
   useEffect(() => {
@@ -70,14 +70,10 @@ function DashboardScreen({ logOut }) {
   return (
     <div className="screenDash">
       <div className="dashHeader">
-        <p>WhatsUp</p>
-        <div className="headerMenu">
-          <div>
-            <p className="userNameTitle">{displayName}</p>
-          </div>
-          <div onClick={navToProfile}>Edit profile</div>
-          <div onClick={logOut}>Log out</div>
-        </div>
+        <h2>WhatsUp</h2>
+        <h2 className="profileLink" onClick={navToProfile}>
+          {displayName}
+        </h2>
       </div>
 
       {contactsActive && (
@@ -95,7 +91,9 @@ function DashboardScreen({ logOut }) {
           setCurrentConvo={setCurrentConvo}
         />
       )}
-      {profileActive && <ProfileScreen navToContacts={navToContacts} />}
+      {profileActive && (
+        <ProfileScreen navToContacts={navToContacts} logOut={logOut} />
+      )}
       {searchActive && (
         <SearchScreen
           userContacts={userContacts}

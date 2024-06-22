@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function ProfileScreen({ navToContacts }) {
+function ProfileScreen({ navToContacts, logOut }) {
   const [displayName, setDisplayName] = useState("");
   const [status, setStatus] = useState("");
   const [password, setPassword] = useState("");
@@ -103,6 +103,7 @@ function ProfileScreen({ navToContacts }) {
         </label>
         <button type="submit">Save changes</button>
       </form>
+      <button className="logOutBtn" onClick={logOut}>Log Out</button>
     </div>
   );
 }
