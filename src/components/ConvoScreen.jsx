@@ -79,14 +79,24 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
               return (
                 <>
                   {message.author == currentConvo.id ? (
-                    <li className="messageListItem contactMessage" >
+                    <li
+                      key={message.id}
+                      className="messageListItem contactMessage"
+                    >
                       <p className="messageBody">{message.body}</p>
-                      <p className="messageTimestamp">{new Date(message.createdAt).toLocaleString()}</p>
+                      <p className="messageTimestamp">
+                        {new Date(message.createdAt).toLocaleString()}
+                      </p>
                     </li>
                   ) : (
-                    <li className="messageListItem userMessage">
+                    <li
+                      key={message.id}
+                      className="messageListItem userMessage"
+                    >
                       <p className="messageBody">{message.body}</p>
-                      <p className="messageTimestamp">{new Date(message.createdAt).toLocaleString()}</p>
+                      <p className="messageTimestamp">
+                        {new Date(message.createdAt).toLocaleString()}
+                      </p>
                     </li>
                   )}
                 </>
@@ -104,8 +114,8 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
             name="newMessage"
             id="newMessage"
             placeholder="Max. 500 characters"
-            minlength="1"
-            maxlength="500"
+            minLength="1"
+            maxLength="500"
             value={newMessage}
             onChange={handleNewMessage}
           />
