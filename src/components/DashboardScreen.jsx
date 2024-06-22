@@ -45,7 +45,18 @@ function DashboardScreen({ logOut }) {
   function setUserData(response) {
     setDisplayName(response.displayName);
     setStatus(response.status);
-    setUserContacts(response.contacts);
+    let sortedContacts = response.contacts.sort((a, b) => {
+      const nameA = a.displayName.toUpperCase();
+      const nameB = b.displayName.toUpperCase(); 
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+    setUserContacts(sortedContacts);
   }
 
   useEffect(() => {
