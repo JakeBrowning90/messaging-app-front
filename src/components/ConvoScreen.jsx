@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
+function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo, logOut }) {
   const [newMessage, setNewMessage] = useState("");
   const [messageHistory, setMessageHistory] = useState([]);
 
@@ -17,10 +17,15 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
+          authorization: localStorage.getItem("token"),
         },
       }
     )
       .then((response) => {
+        if (response.status == 403) {
+          alert("Your session has expired. Please log in to resume.");
+          logOut();
+        }
         if (response.status >= 400) {
           throw new Error("user fetch error");
         }
@@ -45,6 +50,7 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
         author: author,

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function SearchScreen({ userContacts, navToContacts }) {
+function SearchScreen({ userContacts, navToContacts, logOut }) {
   const [query, setQuery] = useState("");
   const [queryResults, setQueryResults] = useState([]);
 
@@ -14,9 +14,14 @@ function SearchScreen({ userContacts, navToContacts }) {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
       },
     })
       .then((response) => {
+        if (response.status == 403) {
+          alert("Your session has expired. Please log in to resume.");
+          logOut();
+        }
         if (response.status >= 400) {
           throw new Error("fetch error");
         }
@@ -44,12 +49,17 @@ function SearchScreen({ userContacts, navToContacts }) {
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
+          authorization: localStorage.getItem("token"),
         },
         body: JSON.stringify({
           contacts: contactsList,
         }),
       }
     ).then((response) => {
+      if (response.status == 403) {
+        alert("Your session has expired. Please log in to resume.");
+        logOut();
+      }
       navToContacts();
     });
   }
@@ -73,26 +83,30 @@ function SearchScreen({ userContacts, navToContacts }) {
         </form>
       </div>
       <div className="contactsBody">
-      {queryResults.length == 0 ? (
-        <p>No results, try a new search.</p>
-      ) : (
-        <ul className="contactList">
-          {queryResults.map((result) => {
-            return (
-              result.id != localStorage.getItem("id") &&
-              !isExistingContact(result.id) && (
-                <li className="searchListItem">
-                  <p className="userNameTitle">{result.displayName}</p>
-                  <button className="searchListItemBtn" onClick={() => addContact(result.id)}>Add</button>
-                  <p>{result.status}</p>
-                </li>
-              )
-            );
-          })}
-        </ul>
-      )}
+        {queryResults.length == 0 ? (
+          <p>No results, try a new search.</p>
+        ) : (
+          <ul className="contactList">
+            {queryResults.map((result) => {
+              return (
+                result.id != localStorage.getItem("id") &&
+                !isExistingContact(result.id) && (
+                  <li key={result.id} className="searchListItem">
+                    <p className="userNameTitle">{result.displayName}</p>
+                    <button
+                      className="searchListItemBtn"
+                      onClick={() => addContact(result.id)}
+                    >
+                      Add
+                    </button>
+                    <p>{result.status}</p>
+                  </li>
+                )
+              );
+            })}
+          </ul>
+        )}
       </div>
-     
     </div>
   );
 }

@@ -47,7 +47,7 @@ function DashboardScreen({ logOut }) {
     setStatus(response.status);
     let sortedContacts = response.contacts.sort((a, b) => {
       const nameA = a.displayName.toUpperCase();
-      const nameB = b.displayName.toUpperCase(); 
+      const nameB = b.displayName.toUpperCase();
       if (nameA < nameB) {
         return -1;
       }
@@ -64,6 +64,7 @@ function DashboardScreen({ logOut }) {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
       },
     })
       .then((response) => {
@@ -98,6 +99,7 @@ function DashboardScreen({ logOut }) {
           currentConvo={currentConvo}
           navToContacts={navToContacts}
           setCurrentConvo={setCurrentConvo}
+          logOut={logOut}
         />
       )}
       {profileActive && (
@@ -107,6 +109,7 @@ function DashboardScreen({ logOut }) {
         <SearchScreen
           userContacts={userContacts}
           navToContacts={navToContacts}
+          logOut={logOut}
         />
       )}
     </div>

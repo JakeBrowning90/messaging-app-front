@@ -40,6 +40,10 @@ function ProfileScreen({ navToContacts, logOut }) {
         }),
       }
     );
+    if (response.status == 403) {
+      alert("Your session has expired. Please log in to resume.");
+      logOut();
+    }
     const updateResponse = await response.json();
     if (Array.isArray(updateResponse)) {
       setUpdateErrors(updateResponse);

@@ -29,7 +29,7 @@ function LoginScreen({
       const loginResponse = await response.json();
       localStorage.setItem('email', loginResponse.email)
       localStorage.setItem('id', loginResponse.id)
-      localStorage.setItem('token', "Bearer " + loginResponse.token)
+      localStorage.setItem('token', `Bearer ${loginResponse.token}`)
       toggleInvalidLogin(false)
       toggleLoggedIn();
     }
