@@ -56,7 +56,6 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
       console.log("Error posting message");
     } else {
       const messageResponse = await response.json();
-      // console.log(loginResponse);
       setMessageHistory([...messageHistory, messageResponse]);
       setNewMessage("");
     }
