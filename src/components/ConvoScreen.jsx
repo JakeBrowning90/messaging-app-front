@@ -77,35 +77,29 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
           <ul className="messageList">
             {messageHistory.map((message) => {
               return (
-                <>
+                <li key={message.id} className="messageListItem">
                   {message.author == currentConvo.id ? (
-                    <li
-                      key={message.id}
-                      className="messageListItem contactMessage"
-                    >
+                    <div className="contactMessage">
                       <p className="messageBody">{message.body}</p>
                       <p className="messageTimestamp">
                         {new Date(message.createdAt).toLocaleString()}
                       </p>
-                    </li>
+                    </div>
                   ) : (
-                    <li
-                      key={message.id}
-                      className="messageListItem userMessage"
-                    >
+                    <div className="userMessage">
                       <p className="messageBody">{message.body}</p>
                       <p className="messageTimestamp">
                         {new Date(message.createdAt).toLocaleString()}
                       </p>
-                    </li>
+                    </div>
                   )}
-                </>
+                </li>
               );
             })}
           </ul>
         )}
       </div>
-
+      {/* {message.author == currentConvo.id ? ():()} */}
       <form onSubmit={sendMessage} className="searchForm">
         <label className="contactSearchLabel" htmlFor="newMessage">
           New message:

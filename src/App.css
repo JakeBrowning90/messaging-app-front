@@ -194,6 +194,10 @@ li {
 }
 
 .messageListItem {
+ 
+}
+
+.messageListItem > * {
   display: grid;
   grid-template-rows: 1fr 20px;
   background-color: rgba(49, 49, 49, 0.498);
