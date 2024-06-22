@@ -20,7 +20,6 @@ function SearchScreen({ userContacts, navToContacts }) {
         if (response.status >= 400) {
           throw new Error("fetch error");
         }
-        console.log(response.json);
         return response.json();
       })
       .then((response) => setQueryResults(response))
@@ -51,7 +50,6 @@ function SearchScreen({ userContacts, navToContacts }) {
         }),
       }
     ).then((response) => {
-      console.log(response);
       navToContacts();
     });
   }

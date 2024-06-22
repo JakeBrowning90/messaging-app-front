@@ -46,7 +46,6 @@ function DashboardScreen({ logOut }) {
     setDisplayName(response.displayName);
     setStatus(response.status);
     setUserContacts(response.contacts);
-    console.log(userContacts);
   }
 
   useEffect(() => {
@@ -64,7 +63,6 @@ function DashboardScreen({ logOut }) {
       })
       .then((response) => setUserData(response))
       .catch((error) => setError(error));
-    // console.log(localStorage.getItem("id"))
   }, [contactsActive]);
 
   return (

@@ -197,6 +197,26 @@ li {
   border-radius: 5px;
   padding: 5px;
   gap: 5px;
+  line-height: 1.2;
+}
+
+.contactMessage {
+  background-color: rgba(0, 13, 128, 0.357);
+  margin-right: 20vw;
+}
+
+.userMessage {
+  background-color: rgba(0, 86, 0, 0.531);
+  margin-left: 20vw;
+}
+
+.messageBody {
+  line-height: 1.5;
+  text-align: left;
+}
+
+.messageTimestamp {
+  text-align: right;
 }
 
 .searchListItem {
