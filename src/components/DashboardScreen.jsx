@@ -73,7 +73,7 @@ function DashboardScreen({ logOut }) {
         <p>WhatsUp</p>
         <div className="headerMenu">
           <div>
-            <p>{displayName}</p>
+            <p className="userNameTitle">{displayName}</p>
           </div>
           <div onClick={navToProfile}>Edit profile</div>
           <div onClick={logOut}>Log out</div>

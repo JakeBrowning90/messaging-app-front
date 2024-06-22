@@ -58,10 +58,10 @@ function SearchScreen({ userContacts, navToContacts }) {
 
   return (
     <div className="screenSearch page">
-      <div className='pageSubheader'>
+      <div className="pageSubheader">
         <button onClick={navToContacts}>Back</button>
         <form onSubmit={searchUsers} className="searchForm">
-          <label htmlFor="query">
+          <label className="contactSearchLabel" htmlFor="query">
             Search users:
             <input
               name="query"
@@ -74,25 +74,27 @@ function SearchScreen({ userContacts, navToContacts }) {
           <button type="submit">Search</button>
         </form>
       </div>
-
+      <div className="contactsBody">
       {queryResults.length == 0 ? (
         <p>No results, try a new search.</p>
       ) : (
-        <ul>
+        <ul className="contactList">
           {queryResults.map((result) => {
             return (
               result.id != localStorage.getItem("id") &&
               !isExistingContact(result.id) && (
-                <li>
-                  <p>{result.displayName}</p>
+                <li className="searchListItem">
+                  <p className="userNameTitle">{result.displayName}</p>
+                  <button className="searchListItemBtn" onClick={() => addContact(result.id)}>Add</button>
                   <p>{result.status}</p>
-                  <button onClick={() => addContact(result.id)}>Add</button>
                 </li>
               )
             );
           })}
         </ul>
       )}
+      </div>
+     
     </div>
   );
 }

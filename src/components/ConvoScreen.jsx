@@ -64,10 +64,12 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo }) {
 
   return (
     <div className="screenConvo page">
-      <div className='pageSubheader'>
+      <div className="pageSubheader">
         <button onClick={clearConvo}>Back</button>
-        <p>{currentConvo.displayName}</p>
-        <p>{currentConvo.status}</p>
+        <div className="convoContactHeader">
+          <p className="userNameTitle">{currentConvo.displayName}</p>
+          <p>{currentConvo.status}</p>
+        </div>
       </div>
 
       {messageHistory.length == 0 ? (

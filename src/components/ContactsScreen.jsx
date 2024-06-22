@@ -20,7 +20,7 @@ function ContactsScreen({
           {userContacts.map((contact) => {
             return (
               <li className="contactListItem" onClick={() => loadConvo(contact)}>
-                <p>{contact.displayName} </p>
+                <p className="userNameTitle">{contact.displayName} </p>
                 <p >{contact.status}</p>
 
               </li>

@@ -39,6 +39,7 @@ input {
 }
 
 h1 {
+  font-weight: 700;
   font-size: 2.5em;
   line-height: 1.1;
 }
@@ -97,6 +98,18 @@ label {
   /* width: 75%; */
   display: flex;
   flex-direction: column;
+  gap: 2px;
+}
+
+.errorList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.errorList > * {
+  color: rgb(255, 192, 192);
+  font-weight: 600;
 }
 
 .screenGate,
@@ -113,17 +126,17 @@ label {
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
+  padding: 5px;
 }
 
-.screenLogin,
-.screenSignup {
+.screenLogin {
   display: flex;
   gap: 10px;
   background-color: rgba(138, 138, 138, 0.559);
   padding: 5px;
   border-radius: 5px;
 }
-
+.screenSignup,
 .screenContacts,
 .screenConvo,
 .screenProfile,
@@ -136,10 +149,12 @@ label {
 .pageSubheader {
   background-color: rgba(172, 255, 47, 0.207);
   display: flex;
+  gap: 10px;
+  text-justify: center;
 }
 
 .contactsBody {
-  max-height: 400px;
+  max-height: 410px;
   overflow: scroll;
 }
 
@@ -148,14 +163,17 @@ label {
   flex-direction: column;
   gap: 10px;
   align-self: start;
+  /* overflow: scroll; */
+  /* max-height: 400px; */
 }
 
 li {
   display: flex;
-  border: 1px solid black;
+  overflow: hidden;
 }
 
-.contactListItem {
+.contactListItem,
+.searchListItem {
   display: grid;
   grid-template-rows: 1fr 1fr;
   height: 50px;
@@ -163,6 +181,36 @@ li {
   border: 1px solid grey;
   border-radius: 5px;
   padding: 5px;
+}
+
+.searchListItem {
+  grid-template-columns: 1fr 50px;
+}
+
+.searchListItem  > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchListItemBtn {
+  grid-column: 2/-1;
+  grid-row: 1 / -1;
+}
+
+.convoContactHeader {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.contactListItem > *,
+.convoContactHeader > * {
+  display: flex;
+  align-items: center;
+}
+
+.userNameTitle {
+  font-weight: 600;
 }
 
 .screenConvo {
@@ -175,8 +223,19 @@ li {
 }
 
 .searchForm {
+  justify-self: stretch;
   display: flex;
-  justify-content: ;
+  gap: 5px;
+  flex-grow: 1;
+}
+
+.searchForm > * {
+  /* flex-grow: 1; */
+  margin: 0;
+}
+
+.contactSearchLabel {
+  flex-grow: 1;
 }
 
 .dashHeader {

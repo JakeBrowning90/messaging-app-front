@@ -38,15 +38,18 @@ function SignupScreen({
 
   return (
     <div className="screenSignup page">
-      <button onClick={toggleSignup}>Back</button>
+      <div className="pageSubheader">
+        <button onClick={toggleSignup}>Back</button>
 
-      <p>Create a New User</p>
-      <ul>
-        {signupErrors.map((err) => {
-          return <li>{err.msg}</li>;
-        })}
-      </ul>
-      <form onSubmit={submitSignup}>
+        <p>Create a New User</p>
+      </div>
+
+      <form className="userForm" onSubmit={submitSignup}>
+        <ul className="errorList">
+          {signupErrors.map((err) => {
+            return <li>{err.msg}</li>;
+          })}
+        </ul>
         <label htmlFor="displayName">
           Display name (You can change this later):
           <input
