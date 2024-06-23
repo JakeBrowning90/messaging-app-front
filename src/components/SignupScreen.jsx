@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { apiurl } from "../apiSource";
 
 function SignupScreen({
   displayName,
@@ -15,7 +16,7 @@ function SignupScreen({
 }) {
   async function submitSignup(e) {
     e.preventDefault();
-    const response = await fetch("https://jake-messaging-app-be.fly.dev/users/", {
+    const response = await fetch(apiurl + "users/", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -47,7 +48,7 @@ function SignupScreen({
       <form className="userForm" onSubmit={submitSignup}>
         <ul className="errorList">
           {signupErrors.map((err) => {
-            return <li>{err.msg}</li>;
+            return <li  key={signupErrors.indexOf(err)}>{err.msg}</li>;
           })}
         </ul>
         <label htmlFor="displayName">

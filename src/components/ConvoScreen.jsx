@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { apiurl } from "../apiSource";
 
 function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo, logOut }) {
   const [newMessage, setNewMessage] = useState("");
@@ -10,9 +11,7 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo, logOut }) {
 
   useEffect(() => {
     fetch(
-      `https://jake-messaging-app-be.fly.dev/messages/${localStorage.getItem("id")}/${
-        currentConvo.id
-      }`,
+      apiurl + `messages/${localStorage.getItem("id")}/${currentConvo.id}`,
       {
         mode: "cors",
         headers: {
@@ -45,7 +44,7 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo, logOut }) {
     e.preventDefault();
     let author = localStorage.getItem("id");
     let recipient = currentConvo.id;
-    const response = await fetch(`https://jake-messaging-app-be.fly.dev/messages/`, {
+    const response = await fetch(apiurl + `messages/`, {
       method: "POST",
       mode: "cors",
       headers: {

@@ -113,6 +113,8 @@ label {
 .errorList > * {
   color: rgb(255, 192, 192);
   font-weight: 600;
+  padding: 2px;
+  margin-right: auto;
 }
 
 .screenGate,

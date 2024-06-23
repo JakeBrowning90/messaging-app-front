@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { apiurl } from "../apiSource";
 
 import ContactsScreen from "./ContactsScreen";
 import ProfileScreen from "./ProfileScreen";
@@ -60,7 +61,7 @@ function DashboardScreen({ logOut }) {
   }
 
   useEffect(() => {
-    fetch(`https://jake-messaging-app-be.fly.dev/users/${localStorage.getItem("id")}`, {
+    fetch(apiurl + `users/${localStorage.getItem("id")}`, {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",

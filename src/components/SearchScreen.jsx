@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { apiurl } from "../apiSource";
 
 function SearchScreen({ userContacts, navToContacts, logOut }) {
   const [query, setQuery] = useState("");
@@ -10,7 +11,7 @@ function SearchScreen({ userContacts, navToContacts, logOut }) {
 
   function searchUsers(e) {
     e.preventDefault();
-    fetch(`https://jake-messaging-app-be.fly.dev/users/?name=${query}`, {
+    fetch(apiurl + `users/?name=${query}`, {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
@@ -42,20 +43,17 @@ function SearchScreen({ userContacts, navToContacts, logOut }) {
       contactsList.push(item.id);
     });
     contactsList.push(contact);
-    fetch(
-      `https://jake-messaging-app-be.fly.dev/users/add-contact/${localStorage.getItem("id")}`,
-      {
-        method: "PUT",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          contacts: contactsList,
-        }),
-      }
-    ).then((response) => {
+    fetch(apiurl + `users/add-contact/${localStorage.getItem("id")}`, {
+      method: "PUT",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        contacts: contactsList,
+      }),
+    }).then((response) => {
       if (response.status == 403) {
         alert("Your session has expired. Please log in to resume.");
         logOut();

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { apiurl } from "../apiSource";
 
 function ProfileScreen({ navToContacts, logOut }) {
   const [displayName, setDisplayName] = useState("");
@@ -25,7 +26,7 @@ function ProfileScreen({ navToContacts, logOut }) {
   async function updateUser(e) {
     e.preventDefault();
     const response = await fetch(
-      `https://jake-messaging-app-be.fly.dev/users/${localStorage.getItem("id")}`,
+      apiurl + `users/${localStorage.getItem("id")}`,
       {
         method: "PUT",
         mode: "cors",
@@ -60,9 +61,9 @@ function ProfileScreen({ navToContacts, logOut }) {
       </div>
 
       <form onSubmit={updateUser}>
-        <ul>
+        <ul className="errorList">
           {updateErrors.map((err) => {
-            return <li>{err.msg}</li>;
+            return <li key={updateErrors.indexOf(err)}>{err.msg}</li>;
           })}
         </ul>
         <label htmlFor="">
@@ -107,7 +108,9 @@ function ProfileScreen({ navToContacts, logOut }) {
         </label>
         <button type="submit">Save changes</button>
       </form>
-      <button className="logOutBtn" onClick={logOut}>Log Out</button>
+      <button className="logOutBtn" onClick={logOut}>
+        Log Out
+      </button>
     </div>
   );
 }
