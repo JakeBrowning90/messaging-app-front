@@ -107,7 +107,14 @@ function DashboardScreen({ logOut }) {
         />
       )}
       {profileActive && (
-        <ProfileScreen navToContacts={navToContacts} logOut={logOut} />
+        <ProfileScreen
+          displayName={displayName}
+          setDisplayName={setDisplayName}
+          status={status}
+          setStatus={setStatus}
+          navToContacts={navToContacts}
+          logOut={logOut}
+        />
       )}
       {searchActive && (
         <SearchScreen

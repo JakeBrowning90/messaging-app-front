@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { apiurl } from "../apiSource";
 
-function ProfileScreen({ navToContacts, logOut }) {
-  const [displayName, setDisplayName] = useState("");
-  const [status, setStatus] = useState("");
+function ProfileScreen({
+  displayName,
+  setDisplayName,
+  status,
+  setStatus,
+  navToContacts,
+  logOut,
+}) {
+  // const [displayName, setDisplayName] = useState("");
+  // const [status, setStatus] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [updateErrors, setUpdateErrors] = useState([]);
@@ -72,6 +79,7 @@ function ProfileScreen({ navToContacts, logOut }) {
             name="displayName"
             type="text"
             id="displayName"
+            maxLength="30"
             value={displayName}
             onChange={handleDisplayName}
           />
@@ -82,6 +90,7 @@ function ProfileScreen({ navToContacts, logOut }) {
             name="status"
             type="text"
             id="status"
+            maxLength="30"
             value={status}
             onChange={handleStatus}
           />
@@ -92,6 +101,7 @@ function ProfileScreen({ navToContacts, logOut }) {
             name="password"
             type="password"
             id="password"
+            maxLength="20"
             value={password}
             onChange={handlePassword}
           />
@@ -102,6 +112,7 @@ function ProfileScreen({ navToContacts, logOut }) {
             name="confirmPassword"
             type="password"
             id="confirmPassword"
+            maxLength="20"
             value={confirmPassword}
             onChange={handleConfirmPassword}
           />
