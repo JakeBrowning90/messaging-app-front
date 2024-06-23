@@ -158,7 +158,8 @@ label {
   align-items: center;
 }
 
-.contactsBody, .messagesBody  {
+.contactsBody,
+.messagesBody {
   max-height: 410px;
   overflow: scroll;
 }
@@ -175,7 +176,8 @@ label {
   align-self: start;
 }
 
-.contactList, .messageList {
+.contactList,
+.messageList {
   flex-direction: column;
 }
 
@@ -196,7 +198,6 @@ li {
 }
 
 .messageListItem {
- 
 }
 
 .messageListItem > * {
@@ -288,6 +289,12 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.dashUser {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 ul {

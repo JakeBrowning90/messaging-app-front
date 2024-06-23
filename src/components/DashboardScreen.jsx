@@ -81,9 +81,12 @@ function DashboardScreen({ logOut }) {
   return (
     <div className="screenDash">
       <div className="dashHeader">
-        <h2>WhatsUp</h2>
+        <div className="dashUser">
+          <h2>{displayName}</h2>
+          <p>{status}</p>
+        </div>
         <h2 className="profileLink" onClick={navToProfile}>
-          {displayName}
+          Profile
         </h2>
       </div>
 

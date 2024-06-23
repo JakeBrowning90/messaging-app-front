@@ -87,7 +87,7 @@ function ProfileScreen({ navToContacts, logOut }) {
           />
         </label>
         <label htmlFor="">
-          Password:
+          New password:
           <input
             name="password"
             type="password"
@@ -97,7 +97,7 @@ function ProfileScreen({ navToContacts, logOut }) {
           />
         </label>
         <label htmlFor="">
-          Confirm password:{" "}
+          Confirm new password:
           <input
             name="confirmPassword"
             type="password"
