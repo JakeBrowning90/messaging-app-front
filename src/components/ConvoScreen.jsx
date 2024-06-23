@@ -10,7 +10,7 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo, logOut }) {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/messages/${localStorage.getItem("id")}/${
+      `https://jake-messaging-app-be.fly.dev/messages/${localStorage.getItem("id")}/${
         currentConvo.id
       }`,
       {
@@ -45,7 +45,7 @@ function ConvoScreen({ currentConvo, navToContacts, setCurrentConvo, logOut }) {
     e.preventDefault();
     let author = localStorage.getItem("id");
     let recipient = currentConvo.id;
-    const response = await fetch(`http://localhost:3000/messages/`, {
+    const response = await fetch(`https://jake-messaging-app-be.fly.dev/messages/`, {
       method: "POST",
       mode: "cors",
       headers: {

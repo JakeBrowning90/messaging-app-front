@@ -60,7 +60,7 @@ function DashboardScreen({ logOut }) {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${localStorage.getItem("id")}`, {
+    fetch(`https://jake-messaging-app-be.fly.dev/users/${localStorage.getItem("id")}`, {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",

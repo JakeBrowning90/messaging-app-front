@@ -10,7 +10,7 @@ function SearchScreen({ userContacts, navToContacts, logOut }) {
 
   function searchUsers(e) {
     e.preventDefault();
-    fetch(`http://localhost:3000/users/?name=${query}`, {
+    fetch(`https://jake-messaging-app-be.fly.dev/users/?name=${query}`, {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ function SearchScreen({ userContacts, navToContacts, logOut }) {
     });
     contactsList.push(contact);
     fetch(
-      `http://localhost:3000/users/add-contact/${localStorage.getItem("id")}`,
+      `https://jake-messaging-app-be.fly.dev/users/add-contact/${localStorage.getItem("id")}`,
       {
         method: "PUT",
         mode: "cors",

@@ -25,7 +25,7 @@ function ProfileScreen({ navToContacts, logOut }) {
   async function updateUser(e) {
     e.preventDefault();
     const response = await fetch(
-      `http://localhost:3000/users/${localStorage.getItem("id")}`,
+      `https://jake-messaging-app-be.fly.dev/users/${localStorage.getItem("id")}`,
       {
         method: "PUT",
         mode: "cors",

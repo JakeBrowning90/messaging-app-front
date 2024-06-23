@@ -12,7 +12,7 @@ function LoginScreen({
 }) {
   async function submitLogin(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:3000/users/log-in", {
+    const response = await fetch("https://jake-messaging-app-be.fly.dev/users/log-in", {
       method: "POST",
       mode: "cors",
       headers: {
