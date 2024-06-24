@@ -161,7 +161,7 @@ label {
 .contactsBody,
 .messagesBody {
   max-height: 410px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .messagesBody {
@@ -171,17 +171,15 @@ label {
 
 .contactList,
 .messageList {
+  width: 100%;
   display: flex;
   gap: 10px;
-  align-self: start;
-}
-
-.contactList,
-.messageList {
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 li {
+  /* width: 90%; */
   display: flex;
   overflow: hidden;
 }

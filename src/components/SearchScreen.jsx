@@ -73,6 +73,7 @@ function SearchScreen({ userContacts, navToContacts, logOut }) {
               name="query"
               type="text"
               id="query"
+              required
               value={query}
               onChange={handleQuery}
             />
@@ -80,7 +81,7 @@ function SearchScreen({ userContacts, navToContacts, logOut }) {
           <button type="submit">Search</button>
         </form>
       </div>
-      <div className="contactsBody">
+      <div className="contactsBody page">
         {queryResults.length == 0 ? (
           <p>No results, try a new search.</p>
         ) : (

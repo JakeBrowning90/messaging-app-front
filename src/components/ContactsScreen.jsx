@@ -29,7 +29,7 @@ function ContactsScreen({
       )}
       </div>
     
-      <button onClick={navToSearch}>Add new contact</button>
+      <button onClick={navToSearch}>Find new contact</button>
     </div>
   );
 }
