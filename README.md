@@ -4,6 +4,8 @@
 
 This is a fullstack MERN (MongoDB, Express, React, Node.js) app designed to emulate the functionality of messaging services like WhatsApp and Facebook Messenger. It is part of The Odin Project curriculum: https://www.theodinproject.com/lessons/nodejs-messaging-app
 
+View the repo for the backend of this project at https://github.com/JakeBrowning90/messaging-app-back
+
 ## Technologies
 
 In addition to the MERN stack, this project uses Passport.js and jsonwebtoken for authentication. Styling is vanilla CSS.
