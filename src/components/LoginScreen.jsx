@@ -67,6 +67,9 @@ function LoginScreen({
         <button type="submit">Log In</button>
       </form>
       <button onClick={toggleSignup}>Sign up</button>
+      <p>Demo account:</p>
+      <p>Email: guestuser@gmail.com</p>
+      <p>Password: fileapp</p>
     </div>
   );
 }

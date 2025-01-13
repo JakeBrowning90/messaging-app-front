@@ -24,6 +24,11 @@ The following is a list of features I'd like to add for greater functionality an
 
 When starting the app, log in with your email and password, or create a new account. Once you have created a new account, you can log in with those credentials. 
 
+You can also log in to a sample account:
+
+### Guest email: guestuser@gmail.com
+### Password: fileapp
+
 Once logged in, you will see your list of contacts, which may be empty if you are a new user. To add contacts, click the button at the bottom of the page to bring up a search screen. Search for other users by their "Display name", not their email address. When you locate a user you wish to add as a contact, click the "Add" button next to their name. This will return you to the Contacts list. Note that adding a user as a contact will also add you to their contacts list! 
 
 To engage in a chat, click on a contact's name from the main screen. The newest message in the conversation will be visible at the bottom of the message history. Type in the text input at the bottom of the screen and click "Send" to post a new message.
